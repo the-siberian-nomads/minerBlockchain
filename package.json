@@ -1,0 +1,27 @@
+{
+  "name": "minerblockchain",
+  "version": "1.0.0",
+  "description": "our first implementation of blockchain miner",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priqb/minerblockchain.git"
+  },
+  "author": "priQB, noGju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priqb/minerblockchain/issues"
+  },
+  "homepage": "https://github.com/priqb/minerblockchain#readme",
+  "dependencies": {
+    "transactionblockchain": "^1.0.2",
+    "blockblockchain": "^1.0.0",
+    "promise": "^7.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
