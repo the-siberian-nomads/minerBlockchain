@@ -59,11 +59,11 @@ function addNodes(nodes) {
 
         this.node_list.forEach((our_node) => {
             if (node.address == our_node.address && node.port == our_node.port)
-                already_in_list = true;
+            already_in_list = true;
         });
 
         if (!already_in_list)
-            this.node_list.push(node);
+        this.node_list.push(node);
     });
 }
 
@@ -78,19 +78,19 @@ function flushTransactionPool() {
 // Flush the entire transaction pool into the current block.
 function flushTransaction(transaction) {
     return Util
-        .unblock()
-        .then(() => {
-            this.latestBlock().data.push(transaction);
-            let valid = Transaction.verify(transaction, this.transaction_map, this.latestBlock());
-            this.latestBlock().data.pop();
+    .unblock()
+    .then(() => {
+        this.latestBlock().data.push(transaction);
+        let valid = Transaction.verify(transaction, this.transaction_map, this.latestBlock());
+        this.latestBlock().data.pop();
 
-            if (valid) {
-                // TODO this should be moved to Block.addTransaction.
-                Transaction.addToMap(transaction, this.transaction_map);
+        if (valid) {
+            // TODO this should be moved to Block.addTransaction.
+            Transaction.addToMap(transaction, this.transaction_map);
 
-                Block.addTransaction(this.latestBlock(), transaction);
-            }
-        });
+            Block.addTransaction(this.latestBlock(), transaction);
+        }
+    });
 }
 
 // Create the genesis block and reset state.
@@ -103,7 +103,7 @@ function createGenesisBlock() {
 function createGenesisIfNeeded() {
     return new Promise((resolve, reject) => {
         if (this.blockchain.length == 0)
-            this.createGenesisBlock();
+        this.createGenesisBlock();
 
         return resolve();
     });
@@ -174,7 +174,6 @@ function logChain(blockchain, prefix) {
     blockchain.forEach((block) => {
         this.logger.log(prefix + Block.toString(block));
     });
-    console.log(blockchain);
     this.logger.log("Is chain valid: " + Block.getVerificationMetadata(this.blockchain).valid);
 }
 
@@ -182,7 +181,7 @@ function logChain(blockchain, prefix) {
 function computeHash() {
     // If we aren't mining we delay to keep CPU usage down.
     if (!this.actively_mining)
-        return Util.delay(100);
+    return Util.delay(100);
 
     return new Promise((resolve, reject) => {
         this.latestBlock().nonce++;
@@ -215,12 +214,12 @@ function computeHash() {
 // Main miner loop - constantly running.
 function main() {
     return Util
-        .unblock()
-        .then(this.createGenesisIfNeeded)
-        .then(this.flushTransactionPool)
-        .then(this.computeHash)
-        .then(this.main)
-        .catch((error) => console.error(error))
+    .unblock()
+    .then(this.createGenesisIfNeeded)
+    .then(this.flushTransactionPool)
+    .then(this.computeHash)
+    .then(this.main)
+    .catch((error) => console.error(error))
 }
 
 module.exports = Miner;

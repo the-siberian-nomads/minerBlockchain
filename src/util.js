@@ -19,25 +19,25 @@ function unblock() {
 function waitForAll(promises) {
     return new Promise((resolve, reject) => {
         if (promises.length == 0)
-            return resolve();
+        return resolve();
 
         var haveRejected = false;
         var successes = 0;
 
         promises.forEach((promise) => {
             promise
-                .then(() => {
-                    successes++;
+            .then(() => {
+                successes++;
 
-                    if (successes == promises.length)
-                        resolve();
-                 })
-                .catch((error) => {
-                    if (!haveRejected) {
-                        haveRejected = true;
-                        reject(error);
-                    }
-                 });
+                if (successes == promises.length)
+                resolve();
+            })
+            .catch((error) => {
+                if (!haveRejected) {
+                    haveRejected = true;
+                    reject(error);
+                }
+            });
         });
     });
 }

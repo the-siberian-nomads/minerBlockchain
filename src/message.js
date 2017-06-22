@@ -22,10 +22,10 @@ const handlers = {
 
 function messageHandler(message, miner, socket) {
     if (!message.type)
-        return console.error("Message received without type attribute - ignoring.");
+    return console.error("Message received without type attribute - ignoring.");
 
     if (!handlers[message.type])
-        return console.error("Message received with unknown type attribute " + message.type + " - ignoring.");
+    return console.error("Message received with unknown type attribute " + message.type + " - ignoring.");
 
     return handlers[message.type](message, miner, socket);
 }

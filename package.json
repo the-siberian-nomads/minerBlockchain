@@ -1,6 +1,6 @@
 {
   "name": "minerblockchain",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "our first implementation of blockchain miner",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/priqb/minerblockchain.git"
+    "url": "git+https://github.com/the-siberian-nomads/minerBlockchain.git"
   },
   "author": "priQB, noGju",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/priqb/minerblockchain/issues"
+    "url": "https://github.com/the-siberian-nomads/minerBlockchain/issues"
   },
-  "homepage": "https://github.com/priqb/minerblockchain#readme",
+  "homepage": "https://github.com/the-siberian-nomads/minerBlockchain#readme",
   "dependencies": {
-    "transactionblockchain": "^1.0.2",
-    "blockblockchain": "^1.0.0",
+    "transactionblockchain": "^1.0.3",
+    "blockblockchain": "^1.0.1",
     "promise": "^7.1.1"
   },
   "devDependencies": {
